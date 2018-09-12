@@ -12,9 +12,18 @@ RSpec.describe 'Auth Flow' do
     end
   end
 
-  describe 'User login with GitHub' do
+  describe 'A registered user visits the homepage' do
+    xit 'they should be redirected to the dashboard page' do
+    end
+  end
+
+  describe 'A user clicks the \'Login with GitHub\' button' do
     xit 'should redirect the user to the GitHub auth page and return an auth hash' do
-  
+      visit '/'
+
+      click_button 'Login with GitHub'
+
+      expect(page).to have_current_path('/dashboard')
     end
   end
 end
