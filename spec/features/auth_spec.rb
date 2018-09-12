@@ -8,7 +8,7 @@ RSpec.describe 'Auth Flow' do
       expect(page).to have_current_path('/')
       expect(page).to have_content('Welcome to CodeSpar!')
       expect(page).to have_content('Ready to have some fun coding? Login below to get started.')
-      expect(page).to have_button('Login with GitHub')
+      expect(page).to have_link('Login with GitHub')
     end
   end
 
@@ -17,11 +17,12 @@ RSpec.describe 'Auth Flow' do
     end
   end
 
-  describe 'A user clicks the \'Login with GitHub\' button' do
-    xit 'should redirect the user to the GitHub auth page and return an auth hash' do
+  describe 'A user clicks the \'Login with GitHub\' link' do
+    it 'should redirect the user to the GitHub auth page and return an auth hash' do
+      Capybara.current_driver = :selenium
       visit '/'
 
-      click_button 'Login with GitHub'
+      click_link 'Login with GitHub'
 
       expect(page).to have_current_path('/dashboard')
     end

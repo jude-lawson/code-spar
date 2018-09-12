@@ -27,3 +27,6 @@
 /config/master.key
 
 fixtures/**
+
+# Ignore application configuration
+/config/application.yml
